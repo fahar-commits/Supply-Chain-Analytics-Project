@@ -1,13 +1,13 @@
 # Supply-Chain-Analytics-Project
 🚀 Overview
 
-This project demonstrates an end-to-end Supply Chain Analytics pipeline integrating database management, workflow automation, AI-assisted analysis, and KPI dashboarding.
+This project demonstrates an end-to-end Supply Chain Analytics pipeline integrating database management, workflow automation, AI-assisted analysis, and executive dashboard design.
 
 The objective was to analyze order fulfillment performance and generate business insights using real-world supply chain KPIs such as Line Fill Rate, Volume Fill Rate, On-Time %, In-Full %, and OTIF %.
 
 The project combines:
 
-PostgreSQL (Supabase) for data storage
+PostgreSQL (Supabase) for structured data storage
 
 n8n for workflow automation
 
@@ -15,7 +15,7 @@ Python for data cleaning & transformation
 
 AI-assisted spreadsheet analytics (Quadratic)
 
-Business KPI dashboarding
+Executive BI dashboard wireframing using Mokkup
 
 🎯 Problem Statement
 
@@ -23,7 +23,7 @@ Supply chain teams often struggle with:
 
 Partial order fulfillment
 
-Delayed deliveries
+Delivery delays
 
 Low OTIF (On-Time In-Full) performance
 
@@ -31,33 +31,35 @@ Limited visibility into customer-level performance
 
 The goal of this project was to:
 
-Consolidate multi-source data into a structured analytical dataset
+Consolidate multi-source datasets into a structured analytical model
 
-Calculate key operational KPIs
+Calculate operational KPIs at order and line levels
 
-Identify top-performing and underperforming customers
+Identify top customers by order value and reliability metrics
 
-Provide insights to improve order reliability
+Provide insights to improve supply chain reliability and fulfillment efficiency
 
 🏗 Technical Architecture
 
 Data Flow:
 
-Gmail Trigger → n8n Automation → PostgreSQL (Supabase) → Python Cleaning & Merging → KPI Calculation → Dashboard Insights
+Gmail Trigger → n8n Workflow Automation → PostgreSQL (Supabase) → Python Cleaning & Merging → KPI Calculation → Executive Dashboard Wireframe
 
 🛠 Tools & Technologies Used
 
-PostgreSQL (Supabase) – Database setup & storage
+PostgreSQL (Supabase) – Database setup & structured storage
 
-n8n – Automated data migration workflows
+n8n – Automated data ingestion and workflow orchestration
 
-Python (Pandas) – Data cleaning & transformation
+Python (Pandas) – Data cleaning, transformation & merging
 
-Quadratic (AI Spreadsheet) – Business analysis
+SQL – Structured joins and querying
 
-Exchange Rate API – Currency conversion
+Quadratic (AI Spreadsheet) – Business KPI generation
 
-SQL – Table joins and structured querying
+Mokkup – BI dashboard wireframe creation
+
+Exchange Rate API – Historical currency conversion
 
 📂 Dataset Structure
 Fact Tables
@@ -74,9 +76,9 @@ dim_customers
 
 exchange_rate
 
-🧹 Data Processing Steps
+🧹 Data Processing & Modeling
 
-Converted product_id and customer_id to numeric
+Converted product_id and customer_id to numeric format
 
 Removed null and malformed records
 
@@ -84,11 +86,11 @@ Converted dates to datetime format
 
 Merged fact & dimension tables
 
-Converted USD prices to INR using historical exchange rates
+Applied historical USD to INR currency conversion
 
 Created consolidated fact_summary table
 
-Calculated total order value in INR
+Computed order-level and line-level KPIs
 
 📊 Key Supply Chain KPIs
 KPI	Value
@@ -101,62 +103,45 @@ In-Full Delivery %	65.96%
 OTIF %	47.26%
 📈 Business Insights
 
-Volume Fill Rate (96.6%) indicates strong quantity fulfillment performance.
+High Volume Fill Rate (96.6%) indicates strong overall quantity fulfillment.
 
-Line Fill Rate (65.9%) suggests frequent partial order fulfillment at line level.
+Lower Line Fill Rate (65.9%) suggests partial SKU-level fulfillment.
 
-OTIF performance is only 47.3%, meaning less than half of orders are delivered both on time and in full.
+OTIF at 47.3% highlights order-level reliability gaps.
 
-Indicates reliability gap at order level despite strong volume performance.
+Performance indicates coordination challenges between supply planning and distribution teams.
 
-Improvement focus required in coordinated delivery timing and complete fulfillment.
+📊 Executive Dashboard
 
-🧠 Supply Chain Concepts Used
+Designed an executive-ready supply chain performance dashboard including:
 
-Order vs Order Line
+Core KPI summary cards
 
-Line Fill Rate – % of order lines fully shipped
+OTIF highlighted as reliability metric
 
-Volume Fill Rate – % of quantity shipped
-
-On-Time % – Delivered within agreed timeline
-
-In-Full % – Delivered complete quantity
-
-OTIF % – Delivered On-Time AND In-Full
-
-🔄 Workflow Automation
-
-Using n8n:
-
-Gmail API OAuth configured
-
-Automated data ingestion into PostgreSQL
-
-Reduced manual data transfer
-
-📊 Dashboard
-
-The project includes a KPI dashboard summarizing:
-
-Core operational metrics
+Line vs Volume Fill comparison gauges
 
 Top 5 customers (Global)
 
-Top 5 customers (India)
+Top 5 customers (India Region)
 
-Order fulfillment performance
+Region & customer filters
+
+The dashboard was wireframed using Mokkup for BI-ready export.
 
 📌 Key Takeaways
 
-Built complete data pipeline from ingestion to insights
+Built full data pipeline from ingestion to insight generation
 
-Applied structured data cleaning & transformation
+Applied structured data modeling principles
 
-Demonstrated real-world supply chain KPI understanding
+Demonstrated operational KPI interpretation capability
 
-Integrated automation with analytics
+Integrated automation with analytics workflow
 
+👨‍💻 Author
+
+Fahar Ahmad
 👨‍💻 Author
 
 Fahar Ahmad
